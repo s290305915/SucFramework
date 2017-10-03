@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../Scripts/jquery-1.8.3.min.js"></script>
+    <style>
+        /* Clear Fix */
+        .clearfix:after
+        {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix
+        {
+            display: inline-block;
+        }
+        /* Hide from IE Mac */
+        .clearfix
+        {
+            display: block;
+        }
+        /* end of clearfix */
+        .xy-container
+        {
+            width: 1000px;
+            margin: 0 auto;
+            border: 1px solid #dcdcdc;
+            border-top: none;
+            margin-bottom: 50px;
+        }
+
+        .query-criteriaBox .query_title
+        {
+            height: 40px;
+            line-height: 40px;
+            background-color: #0085d0;
+            color: #fff;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+            .query-criteriaBox .query_title .query-icon
+            {
+                width: 13px;
+                height: 14px;
+                display: inline-block;
+                background: url("img/query-icon.png") no-repeat;
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+
+        .query-criteriaBox .query-chose
+        {
+            margin: 15px 20px;
+            list-style: none;
+        }
+
+            .query-criteriaBox .query-chose li
+            {
+                float: left;
+                padding: 5px 12px;
+                border: 1px solid #c9c9c9;
+                margin-right: 12px;
+                cursor: pointer;
+            }
+
+                .query-criteriaBox .query-chose li:hover
+                {
+                    border: 1px solid #fa7b06;
+                }
+
+            .query-criteriaBox .query-chose .all-chose
+            {
+                background-color: #fa7b06;
+                border: 1px solid #fa7b06;
+                color: #fff;
+            }
+
+            .query-criteriaBox .query-chose .active
+            {
+                border: 1px solid #fa7b06;
+                background: url("img/chose.png") no-repeat right bottom;
+            }
+
+        .query-criteriaBox .query_input
+        {
+            margin: 0 20px 15px 20px;
+        }
+
+            .query-criteriaBox .query_input li
+            {
+                float: left;
+                margin-right: 50px;
+            }
+
+            .query-criteriaBox .query_input .input
+            {
+                border: 1px solid #dfdfdf;
+                width: 158px;
+                height: 25px;
+                padding: 0 5px;
+                color: #999;
+            }
+
+            .query-criteriaBox .query_input .btn
+            {
+                width: 83px;
+                height: 28px;
+                background-color: #0085d0;
+                color: #fff;
+                -moz-border-radius: 3px; /* Gecko browsers */
+                -webkit-border-radius: 3px; /* Webkit browsers */
+                -ms-border-radius: 3px; /* Gecko browsers */
+                -o-border-radius: 3px;
+                border-radius: 3px;
+            }
+    </style>
+    <script type="text/javascript">
+        var isall = false;
+        function AllCheck() {
+            var ids = "";
+            if (isall == false) {   //未全选
+                isall = true;
+                $("#chk_condition").children("li").addClass("active");
+                $("#c_all").removeClass("active");
+                $('.active').each(function () {
+                    ids += $(this).attr('name') + ",";
+                });
+                ids = ids.substring(0, ids.length - 1);
+                $("#chkids").val(ids);
+            }
+            else {      //已全选
+                isall = false;
+                $("#chk_condition").children("li").removeClass("active");
+                $("#chkids").val("");
+            }
+            txtre(ids);
+            //alert(ids);
+        }
+
+        //选择项目
+        function ChangeCheck(d) {
+            if ($(d).hasClass("active"))
+                $(d).removeClass("active");
+            else {
+                $(d).addClass("active");
+            }
+            $("#chkids").val("");
+            var ids = "";
+            $('.active').each(function () {
+                ids += $(this).attr('name') + ",";
+            });
+            ids = ids.substring(0, ids.length - 1);
+            $("#chkids").val(ids);
+            txtre(ids);
+            //alert(ids);
+        }
+
+        function txtre(ids) {
+            $("#re").html(ids);
+        }
+    </script>
+</head>
+<body>
+    <input type="hidden" id="chkids" value="" />
+    <div>
+        <div class="xy-container">
+            <div class="query-criteriaBox">
+                <ul class="query-chose clearfix" id="chk_condition">
+                    <li class="all-chose" id="c_all" onclick="AllCheck()">全选</li>
+                    <li id="c1" name="1" onclick="ChangeCheck(c1);">终端</li>
+                    <li id="c2" name="2" onclick="ChangeCheck(c2);">宽带</li>
+                    <li id="c3" name="3" onclick="ChangeCheck(c3);">资费迁转</li>
+                    <li id="c4" name="4" onclick="ChangeCheck(c4);">预警</li>
+                    <li id="c5" name="5" onclick="ChangeCheck(c5);">超流量</li>
+                    <li id="c6" name="6" onclick="ChangeCheck(c6);">非4G</li>
+                    <li id="c7" name="7" onclick="ChangeCheck(c7);">换卡</li>
+                    <li id="c8" name="8" onclick="ChangeCheck(c8);">家庭共享包</li>
+                    <li id="c9" name="9" onclick="ChangeCheck(c9);">家庭V网</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="xy-container">
+        结果： <span style="color: red; font-size: 20px" id="re"></span>
+    </div>
+</body>
+</html>

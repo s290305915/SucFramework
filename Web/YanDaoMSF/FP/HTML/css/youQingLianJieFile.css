@@ -1,0 +1,68 @@
+ body{
+	 margin:0 auto;
+	 padding:0;}
+
+/*-------------主体-----------*/
+
+.cont{
+	width:960px;
+	height:auto;
+	margin:0 auto;}
+		/*---------------updown---------------*/
+.jiuLiuLing{
+	width:960px;
+	height:18px;
+	margin:0 auto;}
+.upLeft{
+	width:25px;
+	height:15px;
+	float:left;
+	border-bottom:none;
+	border-left:2px #09F solid;
+	border-right:none;
+	border-top:2px #09F solid;}
+.upRight{
+	width:25px;
+	height:15px;
+	border-bottom:none;
+	border-left:none;
+	float:right;
+	border-right:2px #09F solid;
+	border-top:2px #09F solid;}
+.downLeft{
+	width:25px;
+	height:15px;
+	margin-top:15px;
+	float:left;
+	border-bottom:2px #09F solid;
+	border-left:2px #09F solid;
+	border-right:none;
+	border-top:none;}
+.downRight{
+	width:25px;
+	height:15px;
+	margin-top:15px;
+	float:right;
+	border-bottom:2px #09F solid;
+	border-left:none;
+	border-right:2px #09F solid;
+	border-top:none;}
+	/*--------------------中间部分------------------*/
+.zhongJ{
+	width:960px;
+	height:auto;
+	min-height:100px;
+	float:left;
+	margin:0 auto;
+	}
+.zhongJ .ig{
+	float:left;
+	margin:12px 19px 0 19px;}
+.zhongJ .ig img{
+	border:none;
+	width:200px;
+	height:100px;}
+.zhongJ .ig a img{
+	border:1px #A9C7FF solid;}
+.zhongJ .ig a img:hover{
+	border:1px #FAEC28 solid;}

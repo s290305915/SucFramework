@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SUCMSF" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=SUCMSF;Integrated Security=True" SettingsObjectName="Linq.Properties.Settings" SettingsPropertyName="SUCMSFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.SUC_USER" Member="SUC_USER">
+    <Type Name="SUC_USER">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LOGIN_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CREATE_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LOGIN_COUNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LAST_LOGIN_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="REMARK" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ROLE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PHONENO" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="IP_ADDRESS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IS_CHECKER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

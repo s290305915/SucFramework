@@ -1,0 +1,139 @@
+
+.BM_main{
+	width:740px;
+	min-height:100px;
+	height:auto;
+	background-color:#FFF;
+	_width:740px;
+	}
+H1 {
+	font-size: 12px;
+	margin: 0px;
+	cursor: pointer;
+	border-bottom:1px #0033CC solid;
+	height: 30px;
+	width:240px;
+	line-height:30px;
+	background-color:#FFF;
+	background-image:url(../images/3.jpg);
+	background-repeat:repeat-x;
+	_height: 30px;
+	_width:240px;
+	_line-height:30px;
+}
+H1 li{
+	background-image:url(../images/tubiao.png);
+	background-repeat:no-repeat;
+	list-style:none;
+	width:240px;
+	margin-left:0px;
+	_width:240px;
+	
+	} 
+H1 a {
+	display: block;
+	width: 740px;
+	color: #000;
+	height: 30px;
+	text-decoration: none;
+	moz-outline-style: none;
+	background-repeat: no-repeat;
+	line-height: 30px;
+	text-align: center;
+	margin: 0px;
+	padding-left:28px;
+}
+.BM_contentA{
+	width:740px;
+	height:auto;
+	background-color:#FFF;
+	}
+.BM_MM {
+	width:740px;
+	margin:0px;
+	padding:0px;
+	left:0px;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	clip:rect(0px,0px,0px,0px);
+}
+.BM_MM ul {
+	list-style-type:none;
+	margin-left:0;
+	margin-right:0;
+	padding:0;
+	display:block;
+}
+.BM_MM li {
+	margin-top:8px;
+	margin-bottom:8px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:26px;
+	color:#333333;
+	list-style-type:none;
+	display:block;
+	text-decoration:none;/*
+	height:26px;*/
+	width:740px;
+	padding-left:0px;
+	text-indent:25px;
+}
+.BM_MM a:link {
+	font-family:Arial, Helvetica, sans-serif;/*
+	font-size:12px;
+	line-height:26px;*/
+	color:#333333;
+	/*background-image:url(../images/1.jpg);*/
+	background-color:#FFF;
+	background-repeat: no-repeat;/*
+	height:26px;*/
+	width:740px;
+	display:block;
+	/*text-align: center;*/
+	margin:0px;
+	padding:0px;
+	overflow:hidden;
+	text-decoration:none;
+}
+.BM_MM a:visited {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333333;
+	/*background-image:url(../images/1.jpg);*/
+	background-color:#FFF;
+	background-repeat:no-repeat;
+	display:block;
+	/*text-align: center;*/
+	margin:0px;
+	padding:0px;
+	width:740px;
+	text-decoration:none;
+}
+.BM_MM a:active {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333333;
+	background-repeat:no-repeat;
+	width:740px;
+	display:block;
+	/*text-align: center;*/
+	margin:0px;
+	padding:0px;
+	overflow:hidden;
+	text-decoration:none;
+}
+.BM_MM a:hover {
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-weight:normal;
+	color:#666;
+	/*background-image:url(../images/2.jpg);*/
+	background-color:#e9e9eb;
+	background-repeat:no-repeat;
+	/*text-align: center;*/
+	display:block;
+	margin: 0px;
+	padding:0px;
+	width:740px;
+	text-decoration:none;
+}

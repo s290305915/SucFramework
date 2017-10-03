@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C65ED8BB-DB5E-4D66-884F-AC30769707D8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SucLib</RootNamespace>
+    <AssemblyName>SucLib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ConfigUtil.cs" />
+    <Compile Include="Common\Encrypt.cs" />
+    <Compile Include="Common\JsonHelper.cs" />
+    <Compile Include="Common\LogHelper.cs" />
+    <Compile Include="Common\PageValidate.cs" />
+    <Compile Include="Core\DataBase.cs" />
+    <Compile Include="Core\DataMapAttribute.cs" />
+    <Compile Include="Core\EntityModel.cs" />
+    <Compile Include="Core\SUC_FUNCTION.cs" />
+    <Compile Include="Core\SUC_LOGIN.cs" />
+    <Compile Include="Core\SUC_MODULE.cs" />
+    <Compile Include="Core\SUC_NEWS.cs" />
+    <Compile Include="Core\SUC_ROLE.cs" />
+    <Compile Include="Core\SUC_ROLE_FUNCTION.cs" />
+    <Compile Include="Core\SUC_ROLE_MODULE.cs" />
+    <Compile Include="Core\SUC_USER.cs" />
+    <Compile Include="Data.Dal\AccHelp.cs" />
+    <Compile Include="Common\CacheUtil.cs" />
+    <Compile Include="Common\CommUtil.cs" />
+    <Compile Include="Data.Dal\SQLHelp.cs" />
+    <Compile Include="Common\IOUtil.cs" />
+    <Compile Include="Common\JsUtil.cs" />
+    <Compile Include="Data.Factory\DBFactory.cs" />
+    <Compile Include="Data.IDal\IDBHelp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\XMLUtil.cs" />
+    <Compile Include="Common\SucConvert.cs" />
+    <Compile Include="Common\SucCookie.cs" />
+    <Compile Include="Common\SucDebug.cs" />
+    <Compile Include="Common\SucSession.cs" />
+    <Compile Include="Common\SucUpload.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

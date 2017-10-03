@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "登陆";
+    Layout = null;
+}
+@model MvcApplication.Models.Login
+@*Scripts.Render("~/bundles/Login/css");
+    @Styles.Render("~/bundles/Login/js");*@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <link href="~/Content/Styles/desktop.css" rel="stylesheet" />
+    <link href="~/Content/Styles/login.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/FunctionJS.js"></script>
+    <script type="text/javascript">
+        /*
+        检查浏览器是否支持
+        var isIE = !!window.ActiveXObject;
+        var isIE6 = isIE && !window.XMLHttpRequest;
+        if (isIE6) {
+            window.location.href = "~/Views/Shared/Error.cshtml";
+        }
+        */
+        //回车键
+        document.onkeydown = function (e) {
+            if (!e) e = window.event; //火狐中是 window.event
+            if ((e.keyCode || e.which) == 13) {
+                var obtnSearch = document.getElementById("Log_Submit")
+                obtnSearch.focus(); //让另一个控件获得焦点就等于让文本输入框失去焦点
+                obtnSearch.click();
+            }
+        }
+        //初始化
+        $(function () {
+            $("#Log_Submit").click(function () {
+                CheckUserDataValid();
+            });
+
+        })
+
+
+        function LoginBtn() {
+            var Account = $("#Account").val();
+            var Pwd = $("#Pwd").val();
+            if (Account == "") {
+                $("#Account").focus();
+                showTopMsg("登录账户不能为空", 4000, 'error');
+                return false;
+            } else if (Pwd == "") {
+                $("#Pwd").focus();
+                showTopMsg("登录密码不能为空", 4000, 'error');
+                return false;
+            } else {
+                return true;
+            }
+        }
+        /**
+        数据验证完整性
+        **/
+        function CheckUserDataValid() {
+            if (!LoginBtn()) {
+                return false;
+            }
+            else {
+                CheckingLogin(1);
+                var u = $("#Account").val();
+                var p = $("#Pwd").val();
+                $.post("/Admin/Login", { LOGIN_NAME: u, PASSWORD: p }, function (rs) {
+                    //alert(rs.msg);
+                    if (parseInt(rs.code) == 1) {
+                        showTopMsg(rs.msg, 3000, 'success');
+                        setTimeout(window.location.href = "/Admin/Index", 2000);
+                    } else {
+                        $("#Account").focus();
+                        showTopMsg(rs.msg, 4000, 'error');
+                        CheckingLogin(0);
+                    }
+                });
+
+                //});
+            }
+        }
+
+        //清空
+        function resetInput() {
+            $("#Account").focus(); //默认焦点
+            $("#Account").val("");
+            $("#Pwd").val("");
+        }
+
+        function CheckingLogin(id) {
+            if (id == 1) {
+                $("#Log_Submit").attr("disabled", "disabled")
+                $("#Log_Submit").attr("class", "signload");
+                $(".load").show();
+            } else {
+                $("#Log_Submit").removeAttr('disabled');
+                $("#Log_Submit").attr("class", "sign");
+                $(".load").hide();
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div id="thead">
+        <div class="bg1"></div>
+        <div class="bg2"></div>
+        <form id="loginForm">
+            @* action="/Admin/Login" method="post"*@
+            <div class="bg3">
+                <div class="nav">
+                    <ul class="Form FancyForm">
+                        <li>
+                            <input id="Account" type="text" class="stext" value="" placeholder="请输入用户名" />
+                            <span class="fff"></span>
+                        </li>
+                        <li>
+                            <input id="Pwd" name="" type="password" class="stext" value="" placeholder="请输入密码" />
+                            <span class="fff"></span>
+                        </li>
+                    </ul>
+                    <div class="s8">
+                        <table>
+                            <tr style="height: 20px;">
+                                <td style="text-align: center">
+                                    <input id="Log_Submit" type="button" class="sign" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="load">
+                        <img src="~/Content/Images/Login/loading.gif" />
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="bg4">
+            <p>
+                适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗。
+            </p>
+        </div>
+    </div>
+
+    <div id="bottom">
+    </div>
+</body>
+</html>

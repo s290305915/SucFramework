@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="Scripts/jquery-1.11.3.js"></script>
+    <script src="Scripts/jquery.easyui-1.4.5.js"></script>
+    <script src="Scripts/locale/easyui-lang-zh_CN.js"></script>
+    <link href="Content/themes/icon.css" rel="stylesheet" />
+    <link href="Content/themes/gray/easyui.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(function () {
+
+            $('#divList').datagrid({
+                url: 'Handler/Handler1.ashx?opt=a',
+                toolbar: "#tb",
+                pagination: true, //是否显式分页 
+                pageSize: 20, //页容量，必须和pageList对应起来，否则会报错 
+                //pageNumber: 1, //默认显示第几页 
+                pageList: [20, 30, 50, ],//分页中下拉选项的数值 
+                columns: [[
+                    { title: 'ID', field: 'ID', width: 50 },
+                    { title: 'TITLE', field: 'TITLE', width: 170 },
+                    { title: 'CONTENT', field: 'CONTENT', width: 300 },
+                    { title: 'AUTHOR', field: 'AUTHOR', width: 200 },
+                    { title: 'pandaWebUrl', field: 'pandaWebUrl', width: 150 }
+                ]]
+            });
+
+            $("#btnSearch").click(function () {
+                $('#divList').datagrid({
+                    url: 'Handler/Handler1.ashx?opt=list&t=' + $("#text_qurey").val(),
+                    toolbar: "#tb",
+                    idField: "ID",
+                    singleSelect: true,
+                    border: false,
+                    sortable: true,
+                    loadMsg: '数据加载中请稍后……',
+                    fitColumns: true,
+                    rownumbers: true, //是否加行号 
+                    pagination: true, //是否显式分页 
+                    pageSize: 20, //页容量，必须和pageList对应起来，否则会报错 
+                    //pageNumber: 1, //默认显示第几页 
+                    pageList: [20, 30, 50, ],//分页中下拉选项的数值 
+                    columns: [[
+                        { title: 'ID', field: 'ID', width: 50 },
+                        { title: 'TITLE', field: 'TITLE', width: 170 },
+                        {
+                            title: 'CONTENT', field: 'CONTENT', width: 300, fomatter: function (value, data, index) {
+                                var str = value;
+                                return str.substr(1, 100) + '...';
+                            }
+                        },
+                        { title: 'AUTHOR', field: 'AUTHOR', width: 200 },
+                        { title: 'pandaWebUrl', field: 'pandaWebUrl', width: 150 }
+                    ]]
+                });
+            });
+        });
+    </script>
+    <title></title>
+</head>
+<body>
+
+    <h2>Initialize Value for DateTime</h2>
+    <p>The value is initialized when DateTimeBox has been created.</p>
+    <div style="margin: 20px 0;"></div>
+    <input class="easyui-datetimebox" value="10/11/2012 2:3:56" style="width: 200px" />
+    <br />
+    <br />
+    <br />
+
+    <div id="divList">
+        <div id="tb">
+            <input type="text" class="easyui-textbox" id="text_qurey" />
+            <input id="btnSearch" type="button" class="easyui-linkbutton" value="查  询" />
+        </div>
+        <div>
+        </div>
+    </div>
+
+    <div>
+        <div class="easyui-accordion" style="width: 500px; height: 300px;">
+            <div title="About" data-options="iconCls:'icon-ok'" style="overflow: auto; padding: 10px;">
+                <h3 style="color: #0099FF;">Accordion for jQuery</h3>
+                <p>Accordion is a part of easyui framework for jQuery. It lets you define your accordion component on web page more easily.</p>
+            </div>
+            <div title="Help" data-options="iconCls:'icon-help'" style="padding: 10px;">
+                <p>The accordion allows you to provide multiple panels and display one or more at a time. Each panel has built-in support for expanding and collapsing. Clicking on a panel header to expand or collapse that panel body. The panel content can be loaded via ajax by specifying a 'href' property. Users can define a panel to be selected. If it is not specified, then the first panel is taken by default.</p>
+            </div>
+            <div title="TreeMenu" data-options="iconCls:'icon-search'" style="padding: 10px;">
+                <ul class="easyui-tree">
+                    <li>
+                        <span>Foods</span>
+                        <ul>
+                            <li>
+                                <span>Fruits</span>
+                                <ul>
+                                    <li>apple</li>
+                                    <li>orange</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>Vegetables</span>
+                                <ul>
+                                    <li>tomato</li>
+                                    <li>carrot</li>
+                                    <li>cabbage</li>
+                                    <li>potato</li>
+                                    <li>lettuce</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

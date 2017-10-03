@@ -1,0 +1,252 @@
+body{
+	margin:0 auto;
+	padding:0;}
+*{
+	padding:0px;
+	margin:0px auto;
+}
+img{
+	border:none;
+	_border:none;}
+#top{
+	width:100%;    
+	background:#FDFDFD;
+}
+#top1{
+	
+	margin:0 auto;
+	width:1042px;
+	height:131px;
+    background: url(../images/index-01.jpg) no-repeat;
+}
+
+#top2 {
+	width: 455px;
+	height: 130px;
+	float:right;
+	background:url(../images/index-3.gif);
+}
+#apDiv1 {
+	float:right;
+	width:auto;
+	height: 39px;
+	font-size:13px;
+}
+#apDiv1 h4{
+	_font-size:13px;}
+.jia{
+	color:#747474;
+	text-decoration:underline;
+}
+.deng{
+	color: #F30;
+}
+#apDiv1 a:hover{
+	color:#06F;}
+#daohang{
+	background:url(../images/index-3_07.gif);
+	}
+	
+/*----------------------下拉列表-----------------------*/
+#asd {
+	width:1000px;
+	height:auto;
+	min-height:50px;
+	margin:0 auto;
+	_width:1000px;
+	_height:auto;
+	_min-height:50px;
+	_margin:0 auto;
+}
+#asd a{
+	width: 66px; 
+	text-align:center;
+  	display:block;
+	padding:2px 8px;
+	margin:2px;
+	_width: 66px; 
+	_text-align:center;
+  	_display:block;
+	_padding:2px 8px;
+	_margin:2px;
+}
+#asd ul{
+	margin:0;
+	padding:0;
+	_margin:0;
+	_padding:0;
+	}
+#asd li ul {
+ list-style-type: none;
+ width: auto; //注意,这里一定要设置宽度;
+ position: absolute;
+ background:url(../images/nav-1.png) repeat-y;
+}
+#asd ul li{
+	background:url(../images/index.jpg) right no-repeat;
+	text-align:center;
+	list-style:none;
+	width:108px;
+    float: left;//float就是子菜单横向的关键,可以继承父菜单而省略float
+	font-size:15px;
+	font-size:15px !important;
+	position:relative;
+	_background:url(../images/index.jpg) right no-repeat;
+	_text-align:center;
+	_list-style:none;
+	_width:108px;
+	_float:left;
+	_font-size:15px;
+	_position:relative;
+	-webkit-font-size:14px;
+}
+#asd ul li a{
+		text-decoration:none;
+		line-height:40px;
+		_text-decoration:none;
+		_line-height:40px;		
+}
+#asd ul li a{
+	color:#FFF;}
+#asd ul li a:hover{
+	color:#2F97FF;}
+#asd ul ul {
+	width:108px;
+	visibility:hidden;
+	position:absolute;
+	top:48px;
+	/*background:#00398d;*/
+	_visibility:hidden;
+	_position:absolute;
+	_top:48px;
+	/*_background:#00398d;*/}  
+#asd ul li:hover ul, 
+#asd ul a:hover ul{
+	visibility:visible;
+	_visibility:visible;
+	}
+#asd ul ul{
+	width:88px;} 
+#asd ul ul li {
+	line-height:30px;
+	_line-height:30px;} 
+#asd ul ul li a{
+	background:#00398d;
+	display:block;
+	line-height:25px;
+	text-align:center !important;
+	width:90px;
+	border:0;
+	color:#FFF;
+	_display:block;
+	_line-height:25px;
+	_text-align:center !important;
+	_width:90px;
+	_margin:1;
+	_border:0;} 
+#asd ul ul li a:hover{
+	border:0;
+	color:#FFF;
+	background:#2F97FF;} 
+/*#asd1{
+	width:232px;
+	height:30px;
+	float:right;
+	background: url(../images/index-3_10.png) no-repeat ;
+	margin-top:10px;
+	margin-right:-40px;
+	_width:180px;
+	_height:30px;
+	_margin-top:10px;
+	_float:left;
+	_margin-left:30px;
+	_margin-right:-60px;
+}*/
+
+/*-----------标题-------------*/
+.tab{
+	font-size:15px;
+	text-align:center;
+	line-height:30px;
+	color:#006;
+	width:inherit;
+	height:30px;	
+	background: #ECF5FF;}
+.tab a{
+	color:#006;
+	text-decoration:none;}
+.tab ul li{
+	width:80px;
+	height:30px;
+	float:left;
+	list-style:none;}
+.tab ul li:hover {
+	line-height:26px;
+	color:#03F;
+	font-weight:bold;
+	background:#FFF;
+	height:28px;	
+	border-top:3px solid #022380;
+	border-bottom:none; 
+	}
+.tab ul li a:hover {
+	text-decoration:underline; 
+	}
+.tab ul li.hover{
+	line-height:22px;
+	color:#03F;
+	font-weight:bold;
+	background:#FFF;
+	height:27px;	 
+	border-top:3px solid #022380;}
+
+
+
+
+
+
+
+
+/*----------------页脚部分------------------*/
+.foot{
+	width:1000px;
+	height:auto;
+	font-size:12px;
+	margin-top:10px;
+	margin-bottom:15px;
+	line-height:20px;
+	clear:both;/*
+	background:#069;*/}
+.yiJian{
+	width:auto;
+	height:30px;
+	float:right;
+	_float:right;/*
+	background:#090;*/}
+.yiJian a{
+	color:#003;
+	text-decoration:none;}
+.yiJian a:hover{
+	color:#069;}
+.fenGX{
+	width:1000px;
+	height:6px;
+	background: url(../images/as.jpg) repeat-x;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

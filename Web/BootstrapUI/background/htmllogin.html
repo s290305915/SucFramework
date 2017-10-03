@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../background/style.css" />
+    <link href="../background/layer/skin/layer.ext.css" rel="stylesheet" />
+    <link href="../background/layer/skin/layer.css" rel="stylesheet" />
+    <script src="../background/jquery.min.js"></script>
+    <script src="../background/verificationNumbers.js"></script>
+    <script src="../background/Particleground.js"></script>
+    <script src="../background/layer/layer.js"></script>
+    <style>
+        body {
+            height: 100%;
+            background: #16a085;
+            overflow: hidden;
+        }
+
+        canvas {
+            z-index: -1;
+            position: absolute;
+        }
+
+        .admin_login dd:before {
+            line-height: 40px;
+        }
+
+        .admin_login dd .login_txtbx {
+            height: 40px;
+            width: 100%;
+        }
+    </style>
+    <script>
+    $(document).ready(function () {
+        $('body').particleground({
+            dotColor: '#5cbdaa',
+            lineColor: '#5cbdaa'
+        });
+    });
+</script>
+</head>
+<body>
+    <form id="form">
+        <dl class="admin_login">
+            <dt>
+                <strong>请登录</strong>
+                <em>二次元漫画管理</em>
+            </dt>
+            <dd class="user_icon">
+                <input type="text" class="login_txtbx" placeholder="账号" id="username" />
+            </dd>
+            <dd class="pwd_icon">
+                <input type="password" class="login_txtbx" placeholder="密码"  id="userpwd" />
+            </dd>
+            <dd>
+                <input type="button" id="login" class="submit_btn" value="立即登录"/>
+            </dd>
+            <dd>
+                <p></p>
+                <p></p>
+            </dd>
+        </dl>
+    </form>
+</body>
+</html>

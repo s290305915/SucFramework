@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetWideBandData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strToken" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSystemId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="reqTimeStamp" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="strDataType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWideBandDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWideBandDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetWideBandDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWideBandData" />
+  </wsdl:message>
+  <wsdl:message name="GetWideBandDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWideBandDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWideBandDataHttpGetIn">
+    <wsdl:part name="strToken" type="s:string" />
+    <wsdl:part name="strSystemId" type="s:string" />
+    <wsdl:part name="strPassword" type="s:string" />
+    <wsdl:part name="reqTimeStamp" type="s:string" />
+    <wsdl:part name="strDataType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWideBandDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWideBandDataHttpPostIn">
+    <wsdl:part name="strToken" type="s:string" />
+    <wsdl:part name="strSystemId" type="s:string" />
+    <wsdl:part name="strPassword" type="s:string" />
+    <wsdl:part name="reqTimeStamp" type="s:string" />
+    <wsdl:part name="strDataType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWideBandDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="WideBandDataServiceSoap">
+    <wsdl:operation name="GetWideBandData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">小区宽带装维投诉数据</wsdl:documentation>
+      <wsdl:input message="tns:GetWideBandDataSoapIn" />
+      <wsdl:output message="tns:GetWideBandDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WideBandDataServiceHttpGet">
+    <wsdl:operation name="GetWideBandData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">小区宽带装维投诉数据</wsdl:documentation>
+      <wsdl:input message="tns:GetWideBandDataHttpGetIn" />
+      <wsdl:output message="tns:GetWideBandDataHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WideBandDataServiceHttpPost">
+    <wsdl:operation name="GetWideBandData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">小区宽带装维投诉数据</wsdl:documentation>
+      <wsdl:input message="tns:GetWideBandDataHttpPostIn" />
+      <wsdl:output message="tns:GetWideBandDataHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WideBandDataServiceSoap" type="tns:WideBandDataServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWideBandData">
+      <soap:operation soapAction="http://tempuri.org/GetWideBandData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WideBandDataServiceSoap12" type="tns:WideBandDataServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWideBandData">
+      <soap12:operation soapAction="http://tempuri.org/GetWideBandData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WideBandDataServiceHttpGet" type="tns:WideBandDataServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetWideBandData">
+      <http:operation location="/GetWideBandData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WideBandDataServiceHttpPost" type="tns:WideBandDataServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetWideBandData">
+      <http:operation location="/GetWideBandData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WideBandDataService">
+    <wsdl:port name="WideBandDataServiceSoap" binding="tns:WideBandDataServiceSoap">
+      <soap:address location="http://221.182.39.250/WideBand/WideBandDataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WideBandDataServiceSoap12" binding="tns:WideBandDataServiceSoap12">
+      <soap12:address location="http://221.182.39.250/WideBand/WideBandDataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WideBandDataServiceHttpGet" binding="tns:WideBandDataServiceHttpGet">
+      <http:address location="http://221.182.39.250/WideBand/WideBandDataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WideBandDataServiceHttpPost" binding="tns:WideBandDataServiceHttpPost">
+      <http:address location="http://221.182.39.250/WideBand/WideBandDataService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

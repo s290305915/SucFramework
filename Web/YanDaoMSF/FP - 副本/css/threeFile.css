@@ -1,0 +1,153 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*-------------------主体开始--------------------------------*/
+.conte{
+	width:1000px;
+	height:auto;
+	margin-top:10px;
+	background:#039;}
+/*------------------主体右-------------------*/
+.conte .right{
+    width:762px;
+	height:auto;
+	float:right;}
+.conte .right .weiZhi{
+	width:inherit;
+	height:36px;
+	font-size:14px;
+	line-height:43px;
+	text-align:right;
+	border-bottom:1px #d2e1f1 solid;}
+.conte .right .biaT{
+	width:inherit;
+	height:40px;
+	font-size:16px;
+	text-align:center;
+	line-height:46px;
+	background-image:url(../images/xHx_0.png);
+	background-repeat:no-repeat;
+	background-position:bottom;}
+.conte .right .yueDu{
+	width:inherit;
+	height:22px;
+	line-height:22px;
+	font-size:14px;
+	text-align:right;}
+.conte .right .zWen{
+	width:inherit;
+	height:auto;
+	margin-top:8px;
+	min-height:450px;
+	font-size:14px;
+	text-align:left;
+	text-indent:25px;
+	text-justify:inter-word;
+	line-height:24px;}
+/*------------------主体左-------------------*/
+.conte .left{
+	width:220px;
+	height:auto;
+	float:left;}
+/*---------------快速通道------------------*/
+.conte .left .tongDao{
+	width:inherit;
+	height:auto;
+	border-left:1px #d2e1f1 solid;}
+.conte .left .tongDao .biaoti{
+	width:inherit;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:17px;
+	font-weight:bold;
+	color:#fff;
+	font-family:"宋体", "仿宋", "新宋体";
+	background-image:url(../images/tD_1.png);}
+.conte .left .tongDao .Time{
+	width:inherit;
+	height:20px;}
+.conte .left .tongDao .Time ul{
+	width:inherit;
+	height:inherit;
+	list-style:none;
+	font-size:13px;/*
+	border-bottom:1px #d2e1f1 solid;*/}
+.conte .left .tongDao .Time ul li{
+	width:inherit;
+	list-style:none;}
+/*.conte .right .tongDao .xLtD{
+	width:125px;
+	height:auto;
+	font-size:14px;
+	text-align:center;}
+.conte .right .tongDao .xLtD ul{
+	width:125px;
+	height:auto;
+	list-style:none;}
+.conte .right .tongDao .xLtD ul li{
+	width:125px;
+	height:26px;
+	line-height:26px;
+	margin-top:10px;
+	color:#FFF;
+	background-color:#0244A7;
+	border-top:3px #0b3980 solid;
+	border-left:3px #0b3980 solid;}
+.conte .right .tongDao .xLtD ul li:hover{
+	background-color:#0099ff;
+	border-top:none;
+	border-left:none;
+	border-bottom:3px #01388B solid;
+	border-right:3px #01388B solid;}
+.conte .right .tongDao .xLtD ul li a{
+	color:#FFF;
+	text-decoration:none;}*/
+.conte .left .tongDao .diXian{
+	height:22px; 
+	width:inherit; 
+	border-bottom:1px #d2e1f1 solid; 
+	border-right:none; 
+	border-left:none; 
+	border-top:none;}
+/*---------------友情链接------------------*/
+.conte .left .yQlJ{
+	width:218px;
+	height:auto;
+	margin-top:10px;
+	border:1px #d2e1f1 solid; }
+.conte .left .yQlJ .Table{
+	border-collapse:collapse;
+	height:auto;
+	width:140px;
+	margin-top:8px;
+	margin-bottom:8px;
+	padding:0;}
+.conte .left .yQlJ .Table table tr{
+	height:40px;}
+.conte .left .yQlJ .Table table tr td{
+	width:140px;}
+.conte .left .yQlJ .Table img{
+	width:140px;
+	height:40px;
+	border:none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="style/css.css" rel="stylesheet" />
+    <link href="../Scripts/Jquery-easyui-1.4/themes/icon.css" rel="stylesheet" />
+    <link href="../Scripts/Jquery-easyui-1.4/themes/black/easyui.css" rel="stylesheet" />
+    <script src="style/jquery-1.7.1.js"></script>
+    <script src="style/ajaxfileupload.js"></script>
+    <script src="../Scripts/Jquery-easyui-1.4/jquery.easyui.min.js"></script>
+    <meta charset="utf-8" />
+    <script>
+        var cnt = 1;
+        var fnames = [];
+        var ardmgrs = "";
+        var fscnt = 1;
+        $(function () {
+            //导入到临时表把数据
+            $("#btn_submit").click(function () {
+                //把文件传到后台，读取里面内容并存到临时表
+                ajaxFileUpload();
+            });
+        });
+
+
+
+        //添加文件按钮
+        function AddFiles() {
+            var n = "exfile" + cnt
+            $("#HideFiles").append("<input type='file' id='" + n + "' name='" + n + "' onchange='CreateIcons(\"" + n + "\")' />");
+            ChoiceFile("#" + n);
+        }
+        //添加文件后添加图片和名字
+        function CreateIcons(n) {
+            var sn = "";
+            var t = "";
+            var fileName = $("#" + n).val();
+            if (fnames.indexOf(fileName) != -1) {
+                $("#" + n).remove();
+                alert("文件已存在，请重新添加！");
+                return;
+            }
+            if (fileName.length > 1 && fileName) {
+                sn = fileName;
+                var sn1 = fileName.lastIndexOf(".");
+                t = fileName.substring(sn1 + 1).toUpperCase();
+                if (t == "PPT" || t == "DOC" || t == "XLS" || t == "ZIP" || t == "RAR" || t == "PDF" || t == "PPTX" || t == "DOCX" || t == "XLSX" || t == "JPG" || t == "PNG" || t == "BMP" || t == "TXT") {
+                    var content = "<li id='fc_" + n + "'>";
+                    content += " <div class='grid-view-item item-active'>";
+                    content += " <div class='fileicon'>";
+                    content += " <img src='images/" + t + ".png' width='56' height='56'  />";
+                    content += " </div>";
+                    content += " <div class='file-name'>" + sn + "</div>";
+                    content += " <span class='checkbox'>";
+                    content += " <img src='images/close.png' width='18' height='18' onclick=\"FCRemove('fc_" + n + "','" + n + "','" + fileName + "');\" /></span>";
+                    content += " </div>";
+                    content += " </li>";
+                    $("#list_files").append(content);
+                    fnames.push(fileName);
+                    fscnt = fscnt + 1;  //基数用
+                    if (fscnt > 1)
+                    { $("#filetip").hide(); }
+                    cnt = cnt + 1;
+                }
+                else {
+                    $("#" + n).remove();
+                    alert("文件格式不正确，请重新选择！");
+                    return;
+                }
+            }
+            else {
+                $("#" + n).remove();
+            }
+        }
+        //触发选择对话框
+        function ChoiceFile(e) {
+            return $(e).click();
+        }
+        //点击小红叉去除的文件
+        function FCRemove(e, d, f) {
+            fscnt = fscnt - 1;
+            if (fscnt <= 1)
+            { $("#filetip").show(); }
+            $("#" + e).remove();
+            $("#" + d).remove();
+            removeByValue(fnames, f);
+        }
+
+
+        function ajaxFileUpload() {
+            $("#divState").dialog("open");
+            var enttype = 3;
+            var arrIdList = [];
+            var tx = "";
+            $("#HideFiles").children("input").each(function () {
+                var msg = $(this).attr("id");
+                arrIdList.push(msg);
+                tx += msg + ",";
+            });
+            if (arrIdList.length < 1) {
+                $("#divState").dialog("close");
+                $.messager.alert("信息", "请先选择文件！");
+                return;
+            }
+            $.ajaxFileUpload
+            ({
+                url: '../CheckBoxDemo/style/MutilFileHandler.ashx?opt=ReadFile',//&uid=' + ardmgrs, //用于文件上传的服务器端请求地址
+                secureuri: false, //一般设置为false
+                fileElementId: arrIdList, //['exfile', 'exfile1'], //文件上传空间的id属性  <input type="file" id="file" name="file" />
+                dataType: 'text', //返回值类型 一般设置为json
+                success: function (data)  //服务器成功响应处理函数
+                {
+                    //if (data == "success") {
+                    $("#divState").dialog("close");
+                    $.messager.alert("信息", "保存成功,返回消息：" + data, "info");//
+                    // } else {
+                    //     $("#divState").dialog("close");
+                    //     $.messager.alert("信息", "保存失败，" + data, "error");//
+                    // }
+                    //
+                },
+                error: function (data)//服务器响应失败处理函数
+                {
+                    $("#divState").dialog("close");
+                    $.messager.alert("信息", data, "error");
+                }
+            })
+            return false;
+        }
+
+        function removeByValue(arr, val) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == val) {
+                    arr.splice(i, 1);
+                    break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="birthdayBox">
+        <div class="Btitle">文件上传</div>
+        <div id="BCon">
+            <div class="BuploadFile">
+                <div class="clearfix">
+                    <a href="javascript:void(0);" class="input-file lf" id="btn_add_file" onclick="AddFiles();">
+                        点击选择文件
+                        <!--<input type="file">-->
+                    </a>
+                    <input type="button" class="saveBtn lf ml15" id="btn_submit" value="提交" />
+                    <div class="cl"></div>
+                </div>
+                <div class="grid-view clearfix">
+                    <ul class="clearfix" id="list_files">
+                        <li id="filetip">
+                            <div class="grid-view-item item-active">
+                                <div class="fileicon">
+                                    <img src="images/Folder.png" width="56" height="56" alt="" />
+                                </div>
+                                <div class="file-name">点击按钮添加文件</div>
+                                <span class="checkbox">
+                                    <img src="images/close.png" width="18" height="18" alt="" />
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cl"></div>
+                </div>
+
+
+            </div>
+            
+        </div>
+    </div>
+    <div id="HideFiles" style="display: none"></div>
+</body>
+</html>

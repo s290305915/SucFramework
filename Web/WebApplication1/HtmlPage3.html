@@ -1,0 +1,65 @@
+﻿
+<script src="http://js16.tel.cdndm.com/v201707041718/cartoonupload/js/lazyloadimg2.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    var CSSHOST = "http://js16.tel.cdndm.com/v201707041718/cartoonupload/";
+    var CHAPTER_ID = 500567;
+    var COMIC_MID = 34494;
+    var USER_ID = 0;
+    function isCrossPage(id) {
+        $.cookie("showtype", id, {
+            path: "/", expires: 365
+        });
+        window.location.reload();
+    } function theme_control() {
+        if ($(".theme-dark").length == 0) {
+            $(".theme-white").addClass("theme-dark");
+            $(".theme-white").removeClass("theme-white");
+            $(".tool_title_lamp").html("开灯");
+            $.cookie("isLight", "off", { path: "/", expires: 365 });
+            $(".imgFloat_1").attr("src", CSSHOST + "/images/new/floatR_1.png");
+            $(".imgFloat_1.noC").attr("src", CSSHOST + "/images/new/floatR_1_n.png");
+            $(".imgFloat_2").attr("src", CSSHOST + "/images/new/floatR_2.png");
+            $(".imgFloat_2.noC").attr("src", CSSHOST + "/images/new/floatR_2_n.png");
+            $(".imgFloat_3").attr("src", CSSHOST + "/images/new/floatR_3.png");
+        } else {
+            $(".theme-dark").addClass("theme-white");
+            $(".theme-dark").removeClass("theme-dark");
+            $(".tool_title_lamp").html("关灯");
+            $.cookie("isLight", "on", { path: "/", expires: 365 });
+            $(".imgFloat_1").attr("src", CSSHOST + "/images/new/floatW_1.png");
+            $(".imgFloat_1.noC").attr("src", CSSHOST + "/images/new/floatW_1_n.png");
+            $(".imgFloat_2").attr("src", CSSHOST + "/images/new/floatW_2.png");
+            $(".imgFloat_2.noC").attr("src", CSSHOST + "/images/new/floatW_2_n.png");
+            $(".imgFloat_3").attr("src", CSSHOST + "/images/new/floatW_3.png");
+        }
+    } $(function () {
+        switch ($(".catalog .title .item").length) {
+            case 1: $(".catalog .title .item").css("width", "100%"); break;
+            case 2: $(".catalog .title .item").css("width", "49.89%"); break;
+        }        $("#navWrapTop").mouseover(function () {
+            $("body.view").addClass("toolbar");
+        }); $("#navWrapTop").mouseout(function () {
+            $("body.view").removeClass("toolbar");
+        }); $("#mainView").scroll(function () { myScrollListener(); });
+        $(window).scroll(function () { myScrollListener(); });
+        document.onkeydown = function (event) {
+            var myEvent = event || window.event; if (myEvent.keyCode == 38) /*up*/
+            { document.getElementById('mainView').scrollTop -= 30; }
+            if (myEvent.keyCode == 40) /*down*/
+            { document.getElementById('mainView').scrollTop += 30; }
+        }
+    }); function showCatalog() {
+        $(".catalog").toggle();
+    } var catalogTimer; function closeCatalog() { clearTimeout(catalogTimer); catalogTimer = setTimeout(function () { $(".catalog").fadeOut(); }, 1000); } function selectList(obj, list) { $(obj).siblings().removeClass("active"); $(obj).addClass("active"); $(".chapterlist").hide(); $("#" + list).show(); } window.onload = function () { if (newImgs.length == _tpimagearr.length) { var mainWidth = 0; for (var n = 0; n < _tpimagearr.length; n++) { mainWidth += _tpimagearr[n].w; } mainWidth = mainWidth / _tpimagearr.length; mainWidth = mainWidth < $("#comicContain").width() ? mainWidth : $("#comicContain").width(); } var bakImg = new Image(); bakImg.src = CSSHOST + "/images/new/loading_bak.png"; bakImg.onload = function () {            /*if (WIDESCREEN.length > 0) {                for (var i = 0; i < newImgs.length; i++) {                    if (WIDESCREEN.length >= (i + 1) && WIDESCREEN[i] == "1") {                        var li = $("<li id='page_0" + (i+1) + "' name='page_0" + (i+1) + "' style='margin:0 auto;'><div style='display: inline-block;*display: inline;zoom: 1;'><p class='num'>" + (i+1) + "</p><p class='say'>正在加载...</p><div class='comic-text'></div><img data-src='" + newImgs[i] + "' src='" + CSSHOST + "/images/new/loading_bak.png' data-pid='2696' data-w='800' data-h='1131' class='loaded lazy' style='opacity: 1;max-width:800px;box-shadow:none;'></div></li>");                    } else {                        var li = $("<li id='page_0" + (i+1) + "' name='page_0" + (i+1) + "' style='margin:0 auto;'><div style='display: inline-block;*display: inline;zoom: 1;'><p class='num'>" + (i+1) + "</p><p class='say'>正在加载...</p><div class='comic-text'></div><img data-src='" + newImgs[i] + "' src='" + CSSHOST + "/images/new/loading_bak.png' data-pid='2696' data-w='800' data-h='1131' class='loaded lazy' style='opacity: 1;max-width:800px;box-shadow:none;'></div></li>");                    }                    $("#comicContain").append(li);                }            } else {                for (var i = 0; i < newImgs.length; i++) {                    var li = $("<li id='page_0" + (i+1) + "' name='page_0" + (i+1) + "' style='margin:0 auto;'><div style='display: inline-block;*display: inline;zoom: 1;'><p class='num'>" + (i+1) + "</p><p class='say'>正在加载...</p><div class='comic-text'></div><img data-src='" + newImgs[i] + "' src='" + CSSHOST + "/images/new/loading_bak.png' data-pid='2696' data-w='800' data-h='1131' class='loaded lazy' style='opacity: 1;max-width:800px;box-shadow:none;'></div></li>");                    $("#comicContain").append(li);                }            }*/            if (newImgs.length != _tpimagearr.length) { for (var i = 0; i < newImgs.length; i++) { var li = $("<li id='page_0" + (i + 1) + "' name='page_0" + (i + 1) + "' style='margin:0 auto;'><div style='display: inline-block;*display: inline;zoom: 1;'><p class='num'>" + (i + 1) + "</p><p class='say'>正在加载...</p><div class='comic-text'></div><img data-src='" + newImgs[i] + "' src='" + CSSHOST + "/images/new/loading_bak.png' data-pid='2696' data-w='800' data-h='1131' class='loaded lazy' style='opacity: 1;max-width:800px;box-shadow:none;'></div></li>"); $("#comicContain").append(li); } } else { for (var i = 0; i < newImgs.length; i++) { if (mainWidth * 3 / 4 <= _tpimagearr[i].w) { var li = $("<li id='page_0" + (i + 1) + "' name='page_0" + (i + 1) + "' style='margin:0 auto;'><div style='display: inline-block;*display: inline;zoom: 1;'><p class='num'>" + (i + 1) + "</p><p class='say'>正在加载...</p><div class='comic-text'></div><img data-src='" + newImgs[i] + "' src='" + CSSHOST + "/images/new/loading_bak.png' data-pid='2696' data-w='800' data-h='1131' class='loaded lazy' style='opacity: 1;max-width:800px;box-shadow:none;'></div></li>"); } else { var li = $("<li id='page_0" + (i + 1) + "' name='page_0" + (i + 1) + "' style='margin:0 auto;'><div style='display: inline-block;*display: inline;zoom: 1;'><p class='num'>" + (i + 1) + "</p><p class='say'>正在加载...</p><div class='comic-text'></div><img data-src='" + newImgs[i] + "' src='" + CSSHOST + "/images/new/loading_bak.png' data-pid='2696' data-w='800' data-h='1131' class='loaded lazy' style='opacity: 1;max-width:800px;box-shadow:none;'></div></li>"); } $("#comicContain").append(li); } } imgs = $(".lazy"); /*懒惰加载图片*/            imgsLen = imgs.length; unloaded = unloaded + newImgs.length; /*标记还有多少个图片没有加载*/            firstLoad(); } }</script>
+<div style="display:none">
+    <script type="text/javascript">
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = "http://w.cnzz.com/c.php?id=1256819278";
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+    </script>

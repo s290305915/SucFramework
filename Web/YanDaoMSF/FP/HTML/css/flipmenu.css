@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+	       #wrap {
+               margin : 0px auto;
+			   _z-index:500; 
+			   *z-index:500;
+			   z-index:500 !important;
+			   z-index:500 /9;
+	       }/*宽*/
+
+.flipmenu {
+	line-height:28px;
+    position: relative;
+	background:#00398d;
+	 /*padding-left:10px;
+   padding: 15px;*/
+	text-align:center;
+}
+
+.flipmenu_box {
+    overflow: hidden;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+}
+
+.flipmenu_link,
+.flipmenu_link_over,
+.flipmenu_link_active {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFF;
+    cursor: pointer;
+    white-space: pre;
+    position: absolute;
+}
+
+.flipmenu_link {
+    top: 0px;
+    left: 0px;
+}
+
+.flipmenu_link_over, 
+.flipmenu_link_active {
+	text-decoration:underline;
+}/*鼠标移上去时*/
+

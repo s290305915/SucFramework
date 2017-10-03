@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function timedMsg() {
+            var t = setTimeout("alert('boom！')", 5000)
+            for (v = 0; v < 5; v++) {
+                setTimeout("setmsg(" + (5 - v) + ")", v * 1000)
+            }
+        }
+
+        function setmsg(scd) {
+            document.getElementById('msgbtn').value = scd + " 秒";
+        }
+
+
+        personObj = new Object()
+        personObj.firstname = "John"
+        personObj.lastname = "Adams"
+        personObj.age = 35
+        personObj.eyecolor = "black"
+
+        document.write(personObj.firstname + " 的年龄是 " + personObj.age + " 岁。</br>")
+
+    </script>
+
+    <script type="text/javascript">
+
+        var txt = "Hello World!"
+
+        document.write("<p>Big: " + txt.big() + "</p>")
+        document.write("<p>Small: " + txt.small() + "</p>")
+
+        document.write("<p>Bold: " + txt.bold() + "</p>")
+        document.write("<p>Italic: " + txt.italics() + "</p>")
+
+        document.write("<p>Blink: " + txt.blink() + " (does not work in IE)</p>")
+        document.write("<p>Fixed: " + txt.fixed() + "</p>")
+        document.write("<p>Strike: " + txt.strike() + "</p>")
+
+        document.write("<p>Fontcolor: " + txt.fontcolor("Red") + "</p>")
+        document.write("<p>Fontsize: " + txt.fontsize(16) + "</p>")
+
+        document.write("<p>Lowercase: " + txt.toLowerCase() + "</p>")
+        document.write("<p>Uppercase: " + txt.toUpperCase() + "</p>")
+
+        document.write("<p>Subscript: " + txt.sub() + "</p>")
+        document.write("<p>Superscript: " + txt.sup() + "</p>")
+
+        document.write("<p>Link: " + txt.link("#") + "</p>")
+
+        document.write(txt.match(/./g) + "<br />")
+    </script>
+</head>
+<body  onload="startTime()">
+    <input type="button" id="msgbtn" value="显示定时的警告框" onclick="timedMsg()">
+    <div id="timer"></div>
+    <script>
+        function startTime() {
+            var today = new Date()
+            var h = today.getHours()
+            var m = today.getMinutes()
+            var s = today.getSeconds()
+            // add a zero in front of numbers<10
+            m = checkTime(m)
+            s = checkTime(s)
+            document.getElementById("timer").innerHTML = h + ":" + m + ":" + s
+            t = setTimeout('startTime("timer")', 500)
+        }
+
+        function checkTime(i) {
+            if (i < 10)
+            { i = "0" + i }
+            return i
+        }
+    </script>
+</body>
+</html>

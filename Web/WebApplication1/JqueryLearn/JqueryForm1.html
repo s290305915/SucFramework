@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <form id="form1" action="#">
+        可用元素：<input name="add" value="可用文本框" /><br />
+        不可用元素：<input name="email" disabled="disabled" value="不可用文本框" /><br />
+        可用元素：<input name="che" value="可用文本框" /><br />
+        不可用元素：<input name="name" disabled="disabled" value="不可用文本框" /><br />
+        <br />
+        多选框：<br />
+        <input type="checkbox" name="newsletter" checked="checked" value="test1" />test1
+        <input type="checkbox" name="newsletter" value="test2" />test2
+        <input type="checkbox" name="newsletter" value="test3" />test3
+        <input type="checkbox" name="newsletter" checked="checked" value="test4" />test4
+        <input type="checkbox" name="newsletter" value="test5" />test5
+        <div id="chk">
+            <script>
+                var ck = $("input:checked").length;
+                $("#chk").html("<b>有" + ck + "个被选中了！</b>")
+            </script>
+        </div>
+        <br /><br />
+        下拉列表：<br />
+        <select name="test" multiple="multiple" style="height:100px;">
+            <option>浙江</option>
+            <option selected="selected">湖南</option>
+            <option>北京</option>
+            <option selected="selected">天津</option>
+            <option>广州</option>
+            <option>湖北</option>
+        </select>
+        <br /><br />
+        下拉列表2：<br />
+        <select name="test2">
+            <option>浙江</option>
+            <option>湖南</option>
+            <option selected="selected">北京</option>
+            <option>天津</option>
+            <option>广州</option>
+            <option>湖北</option>
+        </select>
+        <div id="sel">
+            <script>
+                var seltxt = $("select:selected").text();
+                $("#sel").html("<b>你选中了" + seltxt + "</b>");
+            </script>
+        </div>
+        <input type="submit" value="提交" />
+    </form>
+</body>
+</html>

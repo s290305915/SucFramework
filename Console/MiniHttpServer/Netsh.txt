@@ -1,0 +1,17 @@
+﻿IISExpress下的applicationhost.config，在目标站点下增加类似行：
+<binding protocol="http" bindingInformation="*:9999:192.168.1.10" />  
+
+变成
+<binding protocol="http" bindingInformation="*:9999:localhost" />  
+<binding protocol="http" bindingInformation="*:9999:192.168.1.10" />  
+
+
+添加端口访问
+netsh http add urlacl url=http://+:9999/ user=everyone
+netsh http add urlacl url=http://192.168.1.10:9999/ user=everyone
+netsh http add urlacl url=http://127.0.0.1:9999/ user=everyone
+
+删除端口访问
+netsh http delete urlacl url=http://+:9999/
+netsh http delete urlacl url=http://192.168.1.10:9999/ 
+netsh http delete urlacl url=http://127.0.0.1:9999/ 

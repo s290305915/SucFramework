@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2FC8985F-3C0D-458B-93FE-FE35EFE90EE6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsFormsApplication1</RootNamespace>
+    <AssemblyName>WindowsFormsApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>adobe dreamweaver3.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WindowsFormsApplication1.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlExs">
+      <HintPath>..\ControlExs\obj\x86\Release\ControlExs.dll</HintPath>
+    </Reference>
+    <Reference Include="IrisSkin2">
+      <HintPath>..\DLL\IrisSkin2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\DLL\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\DLL\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\DLL\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\DLL\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaiduYunSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaiduYunSearch.Designer.cs">
+      <DependentUpon>BaiduYunSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BitmapRegion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Douban.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Douban.Designer.cs">
+      <DependentUpon>Douban.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlayer.Designer.cs">
+      <DependentUpon>FormPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelect.Designer.cs">
+      <DependentUpon>FrmSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GridTest.Designer.cs">
+      <DependentUpon>GridTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jokeys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jokeys.Designer.cs">
+      <DependentUpon>Jokeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LayouKind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery_Data.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lottery_Data.Designer.cs">
+      <DependentUpon>Lottery_Data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MidC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MidC.Designer.cs">
+      <DependentUpon>MidC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MidP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MidP.Designer.cs">
+      <DependentUpon>MidP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MusicPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusicPlayer.Designer.cs">
+      <DependentUpon>MusicPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NativeConsole.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P2PSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P2PSearch.Designer.cs">
+      <DependentUpon>P2PSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TodayNews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TodayNews.Designer.cs">
+      <DependentUpon>TodayNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Weather.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Weather.Designer.cs">
+      <DependentUpon>Weather.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BaiduYunSearch.resx">
+      <DependentUpon>BaiduYunSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Douban.resx">
+      <DependentUpon>Douban.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlayer.resx">
+      <DependentUpon>FormPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelect.resx">
+      <DependentUpon>FrmSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GridTest.resx">
+      <DependentUpon>GridTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jokeys.resx">
+      <DependentUpon>Jokeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lottery_Data.resx">
+      <DependentUpon>Lottery_Data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MidC.resx">
+      <DependentUpon>MidC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MidP.resx">
+      <DependentUpon>MidP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusicPlayer.resx">
+      <DependentUpon>MusicPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P2PSearch.resx">
+      <DependentUpon>P2PSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TodayNews.resx">
+      <DependentUpon>TodayNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Weather.resx">
+      <DependentUpon>Weather.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Common\Common.csproj">
+      <Project>{e3d8759a-c5eb-402d-9f10-f5c6029a8d1a}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\DBUtility\DBUtility.csproj">
+      <Project>{0988c62e-247f-471f-a183-db509c7a3839}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\SucLib\SucLib.csproj">
+      <Project>{c65ed8bb-db5e-4d66-884f-ac30769707d8}</Project>
+      <Name>SucLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\纯灰色的背景图.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20091003095444217.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\53840ddeb3f52.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="adobe dreamweaver3.ico" />
+    <Content Include="Resources\1.png" />
+    <None Include="Resources\54a28aeb026e42.png" />
+    <None Include="Resources\54a28aeb026e4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

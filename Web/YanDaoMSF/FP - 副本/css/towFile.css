@@ -1,0 +1,132 @@
+
+/*------------------------主体部分-------------------------*/
+.cont{
+	width:1000px;
+	height:auto;
+	margin-top:10px;}
+/*------------------主体左-------------------*/
+.cont .left{
+	width:220px;
+	height:auto;
+	float:left;}
+/*---------------快速通道------------------*/
+.cont .left .tongDao{
+	width:inherit;
+	height:auto;
+	border-left:1px #d2e1f1 solid;}
+.cont .left .tongDao .biaoti{
+	width:inherit;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:17px;
+	font-weight:bold;
+	color:#fff;
+	font-family:"宋体", "仿宋", "新宋体";
+	background-image:url(../images/tD_1.png);}
+.cont .left .tongDao .Time{
+	width:inherit;
+	height:20px;}
+.cont .left .tongDao .Time ul{
+	width:inherit;
+	height:inherit;
+	list-style:none;
+	font-size:13px;/*
+	border-bottom:1px #d2e1f1 solid;*/}
+.cont .left .tongDao .Time ul li{
+	width:inherit;
+	list-style:none;}
+.cont .left .tongDao .diXian{
+	height:22px; 
+	width:inherit; 
+	border-bottom:1px #d2e1f1 solid; 
+	border-right:none; 
+	border-left:none; 
+	border-top:none;}
+/*---------------友情链接------------------*/
+.cont .left .yQlJ{
+	width:218px;
+	height:auto;
+	margin-top:10px;
+	border:1px #d2e1f1 solid; }
+.cont .left .yQlJ .Table{
+	border-collapse:collapse;
+	height:auto;
+	width:140px;
+	margin-top:8px;
+	margin-bottom:8px;
+	padding:0;}
+.cont .left .yQlJ .Table table tr{
+	height:40px;}
+.cont .left .yQlJ .Table table tr td{
+	width:140px;}
+.cont .left .yQlJ .Table img{
+	width:140px;
+	height:40px;
+	border:none;}
+
+/*------------------主体右-------------------*/
+.right{
+	width:760px;
+	height:auto;
+	min-height:300px;
+	float:right;}
+.right .tabUp{
+	width:760px;
+	height:34px;
+	font-size:16px;
+	text-align:left;
+	line-height:26px;
+	color:#006;
+	font-weight:bold;
+	background-image:url(../images/xHx.png);
+	background-position:left bottom ;
+	background-repeat:no-repeat;}
+	/*---------正文条款--------*/
+.right .tabDown{
+	width:760px;
+	height:auto;
+	font-size:12px;}
+.right .tabDown ul{
+	width:760px;
+	height:auto;
+	margin-top:6px;
+	list-style:none;}
+.right .tabDown ul li{
+	height:30px;
+	float:left;
+	list-style:none;
+	border-bottom:1px #666 dashed;}
+.right .tabDown ul  a{
+	text-align:left;
+	color:#333;
+	text-decoration:none;}
+.right .tabDown ul  a:hover{
+	color:#09F;}
+.right .tabDown ul li.line0{
+	width:680px;
+	height:30px;
+	padding-left:13px;
+	background:url(../images/Tbiao.png) no-repeat;
+	line-height:36px;}
+.right .tabDown ul li.time0{
+	width:60px;
+	height:30px;
+	line-height:36px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

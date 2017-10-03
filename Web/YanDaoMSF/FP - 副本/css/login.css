@@ -1,0 +1,14 @@
+﻿.selectinput{margin-bottom:10px;width:224px;height:20px;background-color:#FFF;border:1px solid;border-color:#999 #CCC #CCC #999;}
+.selectinput .txt{float:left;width:165px;border:none;}
+.loginpsw label{float:left;display:inline;margin:0 0 0 4px;width:50px;height:auto;line-height:150%; color:#339900}
+body,td,input,textarea,select,button{color:#666;font:12px/1.6em Verdana,Helvetica,Arial,sans-serif;}
+input,select,button{vertical-align:middle;}
+.txt,.txtarea{padding:2px;*padding:0 2px;height:16px;*height:20px;border:1px solid;border-color:#999 #CCC #CCC #999;background:#FFF;}
+body{ margin:0 auto;}
+.login{border:solid 3px #339900; width:360px; height:223px;display:none; z-index:101;position:absolute; background-color:#FFFFFF;}
+.login .title{width:100%;height:30px;line-height:30px; border-bottom:solid 1px #339900;}
+.login .title b{ padding-left:5px; color:#000000;}
+.login .pad{padding-left:35px;}
+.login .divCode{width:80px; height:30px;position:relative;top: -32px;left:170px; display:none;}
+.login #btnLogin{width:55px; height:28px;}
+#greybackground{background:#000000;width:100%; display:block; z-index:100; top:0px; left:0px; position:absolute;}

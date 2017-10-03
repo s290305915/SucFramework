@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="PushService.asmx.cs" Class="JPushService.PushService" %>

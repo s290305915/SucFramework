@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        #menu {
+            width: 300px;
+        }
+
+        .has_children {
+            background: #555;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .hightlight {
+            color: #fff;
+            background: #0ff;
+        }
+
+        div {
+            padding: 0;
+            margin: 10px 0;
+        }
+
+            div a {
+                background: #888;
+                display: none;
+                float: left;
+                width: 300px;
+            }
+    </style>
+</head>
+<body>
+    <!--简单的一个流式菜单-->
+    <div id="menu">
+        <div class="has_children">
+            <span>认识</span>
+            <a>1.1 js和jquery</a>
+            <a>1.2 加入jquery</a>
+            <a>1.3 编写简单的jquery</a>
+            <a>1.4 jquery对象和dom对象</a>
+        </div>
+        <div class="has_children">
+            <span>选择器</span>
+            <a>2.1 jquery选择器是什么</a>
+            <a>2.2 jquery选择器的优势</a>
+        </div>
+        <div class="has_children">
+            <span>jquery操作DOM</span>
+            <a>3.1 DOM操作的分类</a>
+            <a>3.2 jquery中的DOM操作</a>
+        </div>
+        <script>
+            $(".has_children").click(function () {
+                $(this).addClass("hightlight").children("a").show().end().siblings().removeClass("hightlight").children("a").hide();
+            });
+        </script>
+    </div>
+    <hr />
+    <!--注册下面的控制提交按钮-->
+    <div>
+        <input type="checkbox" id="cr" /><label for="cr">我已经阅读以上！</label>
+        <br />
+        <input type="button" id="btn_sub" value="提交" disabled="disabled" />
+        <script>
+        var $cr = $("#cr");
+        var cr = $cr[0];
+        $cr.click(function () {
+            if (cr.checked) {   //$cr.is(":checked")
+                $("#btn_sub").removeAttr("disabled");
+            } else {
+                $("#btn_sub").attr("disabled", "disabled");
+            }
+        });
+        </script>
+    </div>
+    <hr />
+    <!--隔行变色-->
+    <div>
+        <table id="tb">
+            <tbody>
+                <tr><td>第一行</td><td>第一行</td></tr>
+                <tr><td>第二行</td><td>第二行</td></tr>
+                <tr><td>第三行</td><td>第三行</td></tr>
+                <tr><td>第四行</td><td>第四行</td></tr>
+                <tr><td>第五行</td><td>第五行</td></tr>
+                <tr><td>第六行</td><td>第六行</td></tr>
+            </tbody>
+        </table>
+        <script>
+            var item = document.getElementById("tb");
+            var tbody = item.getElementsByTagName("tbody")[0];
+            var trs = tbody.getElementsByTagName("tr");
+            for (var i = 0; i < trs.length; i++)
+                if (i % 2 == 0)
+                    trs[i].style.backgroundColor = "#888";
+        </script>
+    </div>
+    <hr />
+    <!--获取选中个数-->
+    <div>
+        <input type="checkbox" value="1" name="check" checked />
+        <input type="checkbox" value="2" name="check" />
+        <input type="checkbox" value="3" name="check" />
+        <input type="checkbox" value="4" name="check" checked />
+        <input type="button" value="你选中的个数" id="chkbtn" />
+        <script>
+            var btn = document.getElementById("chkbtn");
+            btn.onclick = function () {
+                var arrays = new Array();
+                var items = document.getElementsByName("check");
+                for (i = 0; i < items.length; i++)
+                    if (items[i].checked)
+                        arrays.push(items[i].value);
+                alert("选中的个数：" + arrays.length);
+            }
+        </script>
+    </div>
+
+</body>
+</html>

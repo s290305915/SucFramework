@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        div, span, p {
+            width: 140px;
+            height: 140px;
+            margin: 5px;
+            background: #aaa;
+            border: #000 1px solid;
+            float: left;
+            font-size: 17px;
+            font-family: Verdana;
+        }
+
+            div.mini {
+                width: 55px;
+                height: 55px;
+                background-color: #aaa;
+                font-size: 12px;
+            }
+
+            div.hide {
+                display: none;
+            }
+    </style>
+</head>
+<body>
+    <h1>选择器的使用</h1>
+    <div class="one" id="one">
+        id为one,class为one的div.
+        <div class="mini">class为mini</div>
+    </div>
+    <div class="one" id="two" title="test">
+        id为two,class为one,title为test的div.
+        <div class="mini" title="other">class为mini,title为other</div>
+        <div class="mini" title="test">class为mini,title为test</div>
+    </div>
+    <div class="one">
+        <div class="mini">class为mini</div>
+        <div class="mini">class为mini</div>
+        <div class="mini">class为mini</div>
+        <div class="mini"></div>
+    </div>
+    <div class="one">
+        <div class="mini">class为mini</div>
+        <div class="mini">class为mini</div>
+        <div class="mini">class为mini</div>
+        <div class="mini" title="tesst">class为mini,title为tesst</div>
+    </div>
+    <div style="display:none;" class="one">style的display为none的div</div>
+    <div class="hide">class为hide的div</div>
+    <div>
+        包含Input的type为hidden的div
+        <input type="hidden" size="8" />
+    </div>
+    <span id="mover">正在执行动画的span元素.</span>
+    <script>
+        $("#one").css("background", "#bbffaa");   //查找id为one的元素
+        $(".mini").css("background", "#bbffaa");  //查找class为mini的元素
+        $("div").css("background", "#bbffaa");    //页面内所有div元素
+        $("*").css("background", "#bbffaa");      //所有，包括body
+        $("span,#two").css("background", "#bbffaa");  //仅改变span和id为two的元素
+        $("body div").css("background", "#bbffaa");   //body下所有div都改变
+        $("body>div").css("background", "#bbffaa");     //body下所有div（仅为body的子元素，更下一级无效）
+        $(".one+div").css("background", "#bbffaa");     //找到下一个class为one开始的div并改变（不包含本身one）
+            //等价 $(".one").next("div");
+        $("#two~div").css("background", "#bbffaa");       //改变后面所有id为two的同级所有div元素
+            //等价 $("#two").nextAll("div");
+        $("#one").siblings("span").css("background", "#bbffaa");    //同级所有，不包含自己
+
+        $("div:hidden").show(3000);
+        $("#mover").hide(3000);
+    </script>
+</body>
+</html>

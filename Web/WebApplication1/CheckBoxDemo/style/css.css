@@ -1,0 +1,254 @@
+* {
+	margin:0;
+	padding:0;
+	font-family:"微软雅黑";
+	font-size:12px;
+}
+img {
+	border:none;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style:none;
+}
+#birthdayBox {
+	width:998px;
+	margin:0 auto;
+}
+#birthdayBox .Btitle {
+	background-color:#0085d0;
+	height:36px;
+	line-height:36px;
+	padding-left:15px;
+	font-size:14px;
+	color:#fff;
+}
+#birthdayBox #BCon {
+	border:solid 1px #ccc;
+	border-top:none;
+	padding:15px 0 15px 15px;
+	*padding-bottom:8px;
+}
+.cl {
+	clear:both;
+}
+.clearfix:before, .clearfix:after {
+	content:"";
+	display:table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+#birthdayBox .BuploadInfo .Bleft {
+	float:left;
+	display:inline-block;
+	height: 470px;
+}
+#birthdayBox .BuploadInfo .Bleft h3 {
+	height: 50px;
+	line-height: 50px;
+	color: #666;
+	text-indent: 1.2em;
+	height: 50px;
+	background: #f5f5f5;
+	border-bottom: 1px solid #f0f0f0;
+}
+#birthdayBox .BuploadInfo .Bright {
+	float:right;
+	display:inline-block;
+	width:380px;
+}
+/*标题样式*/
+.h1_title {
+	line-height: 34px;
+	font-weight: bold;
+	color: #333;
+	height: 34px;
+	font-size: 12px;
+	border-bottom: 1px solid #0085d0;
+	letter-spacing: 1px;
+	margin-bottom: 15px;
+	display: block;
+}
+#birthdayBox .BuploadInfo {
+	border: 1px solid #f5f5f5;
+	margin-bottom:15px;
+}
+/*客户经理*/
+.left-list-main {
+	height:284px;
+	width: 486px;
+	_width: 476px;
+	float: left;
+	background: #fff;
+	border-right: 2px solid #f5f5f5;
+}
+.right-list-main {
+	height:284px;
+	width: 491px;
+	_width: 476px;
+	float: right;
+	background: #fff;
+}
+/*标题*/
+.left-list-title, .right-list-title {
+	width:476px;
+	display: inline-block;
+	text-align: left;
+	height: 34px;
+	line-height: 34px;
+	font-size: 12px;
+	background-color:#fafafa;
+	padding-left: 10px;
+	border-bottom: 1px solid #f5f5f5;
+}
+ .right-list-title{ width:482px;}
+/*ul*/
+.all-friend-list, .new-all-friend-list {
+	height:250px;
+	float: left;
+	overflow: auto;
+	overflow-x: hidden;
+	width: 486px;
+}
+.all-friend-list li, .new-all-friend-list li {
+	width: 486px;
+	display:inline-block;
+	height: 49px;
+	border-bottom: 1px solid #f5f5f5;
+	cursor: pointer;
+	padding-left:12px;
+}
+li .list-content {
+	float:left;
+	display:inline-block;
+	width: 380px;
+	text-align: left;
+	line-height: 49px;
+	height: 49px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.list-icons {
+	width: 23px;
+	height: 22px;
+	background: url(../images/index.png) no-repeat 0 0;
+	margin-top: 15px;
+	margin-right: 40px;
+	float: right;
+}
+.list-icons.on {
+	background-position: 0 -22px;
+}
+.list-icons.off {
+	background-position: 0 -44px;
+}
+.input-file, .saveBtn {
+	text-decoration:none;
+	display:inline-block;
+	width:100px;
+	height:34px;
+	line-height:34px;
+	color:#fff;
+	background:#0085d0;
+	text-align:center;
+	overflow:hidden;
+	position:relative;
+}
+.saveBtn {
+	border:none;
+}
+.input-file:hover {
+	background:#e40077;
+}
+.input-file input {
+	opacity:0;
+	filter:alpha(opacity=0);
+	font-size:100px;
+	position:absolute;
+	background-color:transparent;
+	top:0;
+	right:0;
+}
+.lf {
+	float:left;
+}
+.fr {
+	float:right;
+}
+.ml15 {
+	margin-left:15px;
+}
+/*文件列表*/
+.grid-view {
+	margin-top:15px;
+	*margin-bottom:10px;
+	position: relative;
+}
+.grid-view ul li {
+	height: 135px;
+	display:inline-block;
+	float:left;
+	margin-right:18px;
+	margin-bottom:15px;
+}
+.grid-view .grid-view-item {
+	width: 120px;
+	height: 127px;
+	text-align: center;
+	border: 1px solid #fff;
+	position: relative;
+}
+.grid-view-item.item-active {
+	background-color: #f1f5fa;
+	border: 1px solid #90c3fd;
+	border-radius: 5px;
+}
+.grid-view-item .checkbox {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+}
+.grid-view .fileicon {
+	position: relative;
+	margin: 20px auto 0;
+	width: 56px;
+	height: 56px;
+}
+.file-name {
+	width:110px;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	margin:20px 5px 5px;
+}
+
+.xzTable{}
+.xzTable td{border-bottom: 1px solid #f2f6fd; line-height:30px; height:30px; padding:5px; color:#666;}
+ .xzTable .text {
+    padding-left: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dowm-button {
+	cursor:pointer;
+	background-color:#0085d0;
+    text-decoration: none;
+    color: #fff;
+    border:none;
+	padding:0 15px;
+    border-radius: 4px;
+    height: 32px;
+    line-height: 32px;
+}

@@ -1,0 +1,10 @@
+@charset "utf-8";
+.bannerbox img { border: 0px; width:282px; height:280px;}
+.bannerbox { width: 282px; height: 280px; overflow: hidden; margin: 0px auto; }
+#focus { border:1px #000 solid;  width: 282px; height: 280px; clear: both; overflow: hidden; position: relative; float: left; }
+    #focus ul { width: 282px; height: 280px; float: left; position: absolute; clear: both; padding: 0px; margin: 0px; }
+        #focus ul li { float: left; width: 322px; height: 280px; overflow: hidden; position: relative; padding: 0px; margin: 0px; }
+    #focus .preNext { width: 80px; height: 280px; position: absolute; top: 0px; cursor: pointer; }
+    #focus .pre { left: 0; background: url(../images/sprite.png) no-repeat left center; }
+    #focus .next { right: 0; background: url(../images/sprite1.png) no-repeat right center; }
+.xia{ width:400px; height:200px; background:#06C; margin:0 auto;}

@@ -1,0 +1,265 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <title></title>
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/jquery.easyui-1.4.5.min.js"></script>
+    <link href="~/Content/themes/metro/easyui.css" rel="stylesheet" />
+    <link href="~/Content/themes/color.css" rel="stylesheet" />
+    <link href="~/Content/themes/icon.css" rel="stylesheet" />
+    <link href="~/Content/themes/mobile.css" rel="stylesheet" />
+    <script>
+
+
+        function jsonDateFormat(jsonDate, year) {//json日期格式转换为正常格式
+            try {//出自http://www.cnblogs.com/ahjesus 尊重作者辛苦劳动成果,转载请注明出处,谢谢!
+                var date = new Date(parseInt(jsonDate.replace("/Date(", "").replace(")/", ""), 10));
+                var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+                var day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var seconds = date.getSeconds();
+                var milliseconds = date.getMilliseconds();
+                if (year == 'year')
+                    return date.getFullYear() + "-" + month + "-" + day;
+                return date.getFullYear() + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+            } catch (ex) {//出自http://www.cnblogs.com/ahjesus 尊重作者辛苦劳动成果,转载请注明出处,谢谢!
+                return "";
+            }
+        }
+
+        $(function () {
+
+            var Clear = function () {
+                $("#txtName,#txtLogName,#txtPhone,#txtUnit").textbox("setValue", "");
+                $("#hdId,#roleId").val("");
+                $("#cmbRole").combobox('setValue', "");
+                $("#cmbChecker").combobox('setValue', "0");
+            };
+            var Vali = function () {
+                var role = $("#cmbRole").combobox('getText');
+                alert(role);
+                if (role == "" || role == null)
+                    return false;
+                return true;
+            }
+            $('#divList').datagrid({
+                url: '/Index/GetUserList',
+                toolbar: "#tb",
+                idField: "ID",
+                rownumbers: true,
+                pagination: true,
+                striped: true,
+                singleSelect: true,
+                queryParams: {
+                    s_name: $("#s_name").val()
+                },
+                frozenColumns: [[{ title: '姓名', field: 'NAME', width: 90 }]],
+                columns: [[
+                    { title: '登录名', field: 'LOGIN_NAME', width: 90 },
+                    { title: '角色', field: 'Rolename', width: 90 },
+                    { title: '单位', field: 'UNIT', width: 90 },
+                    { title: '电话', field: 'PHONENO', width: 120 },
+                    {
+                        title: '注册时间', field: 'CREATE_TIME', width: 180, formatter: function (value, data, index) {
+                            return jsonDateFormat(value, "time");
+                        }
+                    },
+                    {
+                        title: '最后登陆时间', field: 'LAST_LOGIN_TIME', width: 180, formatter: function (value, data, index) {
+                            return jsonDateFormat(value, "time");
+                        }
+                    },
+                    {
+                        title: '审核员', field: 'IS_CHECKER', width: 120, formatter: function (v, d, i) {
+                            return v == 1 ? "是" : "否";
+                        }
+                    }
+                ]]
+            });
+
+            $("#btnAdd").click(function () {
+                Clear();
+                $("#divUser").dialog({ title: "添加用户" }).dialog("open");
+            });
+            $("#btnEdit").click(function () {
+                var row = $("#divList").datagrid("getSelected");
+                if (row != null) {
+                    $("#hdId").val(row.ID);
+                    $("#txtLogName").textbox("setValue", row.LOGIN_NAME);
+                    $("#txtName").textbox("setValue", row.NAME);
+                    $("#txtPhone").textbox("setValue", row.PHONENO);
+                    $("#txtUnit").textbox("setValue", row.UNIT);
+                    $("#cmbRole").combobox("setValue", row.Rolename);
+                    $("#cmbChecker").combobox("setValue", row.IS_CHECKER);
+                    $("#roleId").val(row.Rolename);
+                    $("#divUser").dialog({ title: "编辑用户" }).dialog("open");
+                }
+                else {
+                    $.messager.alert("提示", "没有选中任何角色", "error");
+                }
+            });
+
+            $("#btnCancel").click(function () {
+                $("#divUser").dialog("close");
+            });
+
+            $("#btnSubmit").click(function () {
+                if (Vali) {
+                    $.post("/Index/SaveUser", {
+                        id: $("#hdId").val(),
+                        login_name: $("#txtLogName").textbox('getValue'),
+                        name: $("#txtName").textbox('getValue'),
+                        phone: $("#txtPhone").textbox('getValue'),
+                        role: $("#cmbRole").combobox('getText'),
+                        chker: $("#cmbChecker").combobox('getValue'),
+                        utn: $("#txtUnit").textbox('getValue')
+                    }, function (data) {
+                        if (data == "success") {
+                            $.messager.alert("提示", "操作成功", "info", function () {
+                                $('#divUser').dialog('close');
+                                $("#divList").datagrid("reload");
+                            });
+                        }
+                        else {
+                            $.messager.alert("错误", data, "error");
+                        }
+                    });
+                }
+            });
+
+            $("#btnSearch").click(function () {
+                $("#divList").datagrid('reload',
+               {
+                   s_name: $("#s_name").val()
+               });
+            });
+
+            $("#btnRePass").click(function () {
+                var row = $("#divList").treegrid("getSelected");
+                if (row != null) {
+                    $.messager.confirm("提示", "此操作会重置密码，确定要重置吗？", function (r) {
+                        if (r) {
+                            $.post("opt=repass",
+                                { id: row.id },
+                                function (data) {
+                                    if (data == "success") {
+                                        $.messager.alert("提示", "操作成功", "info", function () {
+                                            $("#divList").datagrid("reload");
+                                        });
+                                    }
+                                    else
+                                        $.messager.alert("提示", data, "info");
+                                });
+                        }
+                    });
+                }
+                else { $.messager.alert("提示", "此操作需要选中一条记录", "info"); }
+            });
+
+            $("#btnDelete").click(function () {
+                var row = $("#divList").treegrid("getSelected");
+                if (row != null) {
+                    $.messager.confirm("提示", "此操作会删除该用户，确定要删除吗？", function (r) {
+                        if (r) {
+                            $.post("opt=delete",
+                                { id: row.id },
+                                function (data) {
+                                    if (data == "success") {
+                                        $.messager.alert("提示", "操作成功", "info", function () {
+                                            $("#divList").datagrid("reload");
+                                        });
+                                    }
+                                    else
+                                        $.messager.alert("提示", data, "info");
+                                });
+                        }
+                    });
+                }
+                else { $.messager.alert("提示", "此操作需要选中一条记录", "info"); }
+            });
+
+            $('#cmbRole').combobox({
+                onSelect: function (index) {
+                    $("#roleId").val(index.Id);
+                }
+            });
+
+            $('#cmbRole').combobox({
+                url: '/Index/GetRoleList',
+                valueField: 'ID',
+                textField: 'NAME',
+                onSelect: function (index) {
+                    $("#roleId").val(index.id);
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <input id="orgId" type="hidden" />
+    <input id="roleId" type="hidden" />
+    <input id="hdId" type="hidden" />
+    <div id="divList"></div>
+    <div id="tb">
+        <div>
+            <a id="btnAdd" href="javascript://" class="easyui-linkbutton" plain="true" iconcls="icon-add">添加用户</a>
+            <a id="btnEdit" href="javascript://" class="easyui-linkbutton" plain="true" iconcls="icon-edit">编辑用户</a>
+            <a id="btnDelete" href="javascript://" class="easyui-linkbutton" plain="true" iconcls="icon-remove">删除用户</a>
+            <a id="btnRePass" href="javascript://" class="easyui-linkbutton" plain="true" iconcls="icon-reload">重置密码</a>
+        </div>
+        <div>
+            姓名：
+            <input id="s_name" type="text" class="easyui-textbox" />
+            @*区县：
+                <select id="s_org" class="easyui-combotree"
+                    data-options="url:'Handler/OrganizeHandler.ashx?opt=treeList',method:'get',editable:'true'" style="width: 150px;">
+                </select>*@
+            <a id="btnSearch" href="javascript://" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'">查询</a>
+        </div>
+    </div>
+
+    <div id="divUser" title="添加用户" style="width: 570px; height: 230px; padding: 10px; top: 20%" class="easyui-dialog" data-options="buttons:'#buttons',closed:true,modal:true">
+        <table>
+            <tr>
+                <td style="width: 90px; height: 30px; text-align: right">登录名：</td>
+                <td>
+                    <input id="txtLogName" class="easyui-textbox" required="true" type="text" />
+                </td>
+                <td style="width: 90px; height: 30px; text-align: right">姓名：</td>
+                <td>
+                    <input id="txtName" class="easyui-textbox" required="true" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 90px; height: 30px; text-align: right">电话：</td>
+                <td>
+                    <input id="txtPhone" class="easyui-textbox" type="text" />
+                </td>
+                <td style="width: 90px; height: 30px; text-align: right">单位：</td>
+                <td>
+                    <input id="txtUnit" class="easyui-textbox" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 90px; height: 30px; text-align: right">角色：</td>
+                <td>
+                    <select panelheight="auto" style="width: 148px" id="cmbRole"></select>
+                </td>
+                <td style="width: 90px; height: 30px; text-align: right">审核员：</td>
+                <td>
+                    <select class="easyui-combobox" panelheight="auto" style="width: 148px" id="cmbChecker">
+                        <option value="0" checked="checked">否</option>
+                        <option value="1">是</option>
+                    </select>
+            </tr>
+        </table>
+        <div id="buttons">
+            <a id="btnCancel" href="javascript://" class="easyui-linkbutton" plain="true" iconcls="icon-no">取消</a>
+            <a id="btnSubmit" href="javascript://" class="easyui-linkbutton" plain="true" iconcls="icon-ok">提交</a>
+        </div>
+    </div>
+</body>
+</html>
